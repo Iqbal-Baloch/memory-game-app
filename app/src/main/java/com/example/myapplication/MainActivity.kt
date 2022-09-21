@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,6 +18,8 @@ class MainActivity() : AppCompatActivity() {
     var pics = arrayOf(R.drawable.pig,R.drawable.elephant,R.drawable.owl,R.drawable.fish,R.drawable.pig,R.drawable.panda,R.drawable.frog,R.drawable.sheep,R.drawable.elephant,R.drawable.lion,R.drawable.fish,R.drawable.frog,R.drawable.owl,R.drawable.parrot,R.drawable.lion,R.drawable.mouse,R.drawable.sheep,R.drawable.panda,R.drawable.parrot,R.drawable.mouse)
     lateinit var timer: CountDownTimer
     var correctCount: Int = 10
+    lateinit var mp: MediaPlayer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -51,8 +54,7 @@ class MainActivity() : AppCompatActivity() {
                 findViewById<TextView>(R.id.lblTime).setText("You Loss")
             }
         }
-        val mp:MediaPlayer = MediaPlayer.create(this, R.raw.backmusic)
-        mp.isLooping = true
+        mp = MediaPlayer.create(this, R.raw.backmusic)
         correctCount = 10
         mp.start()
         fliped = false
@@ -687,6 +689,10 @@ class MainActivity() : AppCompatActivity() {
             findViewById<TextView>(R.id.lblTime).setText("You win")
             timer.cancel()
         }
+    }
+    fun retry(view: View){
+        mp.stop()
+        this.recreate()
     }
 
     fun swapElement(arr: Array < Int > , i: Int, j: Int): Unit

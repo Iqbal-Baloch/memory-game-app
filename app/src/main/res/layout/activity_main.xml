@@ -16,13 +16,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.044" />
+        app:layout_constraintVertical_bias="0.018" />
 
     <TextView
         android:id="@+id/lblTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:text="00:00"
         android:textColor="#1A35CD"
         android:textSize="16sp"
@@ -32,11 +32,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <GridLayout
+        android:id="@+id/gridLayout"
         android:layout_width="357dp"
-        android:rowCount="5"
-        android:columnCount="4"
         android:layout_height="485dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="12dp"
+        android:columnCount="4"
+        android:rowCount="5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblTime">
@@ -292,7 +293,18 @@
             android:src="@drawable/qus" />
 
 
-
     </GridLayout>
+
+    <Button
+        android:id="@+id/btnRetry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Retry"
+        android:onClick="retry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
