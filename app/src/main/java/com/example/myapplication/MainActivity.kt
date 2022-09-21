@@ -18,6 +18,9 @@ class MainActivity() : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val mp:MediaPlayer = MediaPlayer.create(this, R.raw.backmusic)
+        mp.isLooping = true
+        mp.start()
         fliped = false
         shuffleElement(pics, 20)
 //        val timer = object: CountDownTimer(20000, 1000) {
