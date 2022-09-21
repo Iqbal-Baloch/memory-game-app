@@ -7,6 +7,7 @@ import android.os.CountDownTimer
 import android.os.Handler
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import kotlin.math.log
 
 class MainActivity() : AppCompatActivity() {
@@ -14,25 +15,47 @@ class MainActivity() : AppCompatActivity() {
     var previous = R.drawable.qus
     var prevId = R.id.one
     var pics = arrayOf(R.drawable.pig,R.drawable.elephant,R.drawable.owl,R.drawable.fish,R.drawable.pig,R.drawable.panda,R.drawable.frog,R.drawable.sheep,R.drawable.elephant,R.drawable.lion,R.drawable.fish,R.drawable.frog,R.drawable.owl,R.drawable.parrot,R.drawable.lion,R.drawable.mouse,R.drawable.sheep,R.drawable.panda,R.drawable.parrot,R.drawable.mouse)
-    var qesImg = "@android:drawable/ic_menu_help"
+    lateinit var timer: CountDownTimer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        timer = object: CountDownTimer(100000, 1000) {
+
+            override fun onTick(millisUntilFinished: Long) {
+                val lblTime: TextView = findViewById(R.id.lblTime)
+                lblTime.setText("seconds:  " + millisUntilFinished/1000 )
+            }
+
+            override fun onFinish() {
+                findViewById<ImageView>(R.id.one).isClickable = false
+                findViewById<ImageView>(R.id.two).isClickable = false
+                findViewById<ImageView>(R.id.three).isClickable = false
+                findViewById<ImageView>(R.id.four).isClickable = false
+                findViewById<ImageView>(R.id.five).isClickable = false
+                findViewById<ImageView>(R.id.six).isClickable = false
+                findViewById<ImageView>(R.id.seven).isClickable = false
+                findViewById<ImageView>(R.id.eight).isClickable = false
+                findViewById<ImageView>(R.id.nine).isClickable = false
+                findViewById<ImageView>(R.id.ten).isClickable = false
+                findViewById<ImageView>(R.id.eleven).isClickable = false
+                findViewById<ImageView>(R.id.twelve).isClickable = false
+                findViewById<ImageView>(R.id.thirteen).isClickable = false
+                findViewById<ImageView>(R.id.fourteen).isClickable = false
+                findViewById<ImageView>(R.id.fifteen).isClickable = false
+                findViewById<ImageView>(R.id.sixteen).isClickable = false
+                findViewById<ImageView>(R.id.seventeen).isClickable = false
+                findViewById<ImageView>(R.id.eighteen).isClickable = false
+                findViewById<ImageView>(R.id.nineteen).isClickable = false
+                findViewById<ImageView>(R.id.twenty).isClickable = false
+                findViewById<TextView>(R.id.lblTime).setText("You Loss")
+            }
+        }
         val mp:MediaPlayer = MediaPlayer.create(this, R.raw.backmusic)
         mp.isLooping = true
         mp.start()
         fliped = false
         shuffleElement(pics, 20)
-//        val timer = object: CountDownTimer(20000, 1000) {
-//            override fun onTick(millisUntilFinished: Long) {
-//
-//            }
-//
-//            override fun onFinish() {
-//
-//            }
-//        }
-//        timer.start()
+        timer.start()
     }
     fun clicked(view: View){
         val click:MediaPlayer = MediaPlayer.create(this, R.raw.click)
