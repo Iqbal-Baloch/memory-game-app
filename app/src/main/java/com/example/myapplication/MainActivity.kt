@@ -16,6 +16,7 @@ class MainActivity() : AppCompatActivity() {
     var prevId = R.id.one
     var pics = arrayOf(R.drawable.pig,R.drawable.elephant,R.drawable.owl,R.drawable.fish,R.drawable.pig,R.drawable.panda,R.drawable.frog,R.drawable.sheep,R.drawable.elephant,R.drawable.lion,R.drawable.fish,R.drawable.frog,R.drawable.owl,R.drawable.parrot,R.drawable.lion,R.drawable.mouse,R.drawable.sheep,R.drawable.panda,R.drawable.parrot,R.drawable.mouse)
     lateinit var timer: CountDownTimer
+    var correctCount: Int = 10
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -52,6 +53,7 @@ class MainActivity() : AppCompatActivity() {
         }
         val mp:MediaPlayer = MediaPlayer.create(this, R.raw.backmusic)
         mp.isLooping = true
+        correctCount = 10
         mp.start()
         fliped = false
         shuffleElement(pics, 20)
@@ -68,6 +70,7 @@ class MainActivity() : AppCompatActivity() {
                 if (previous == pics[0] && prevId != R.id.one ){
                     image2.isClickable = false
                     image.isClickable = false
+                    correctCount--
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
                     correct.start()
                 }
@@ -98,6 +101,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[1] && prevId != R.id.two ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -128,6 +132,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[2] && prevId != R.id.three ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -158,6 +163,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[3] && prevId != R.id.four ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -189,6 +195,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[4] && prevId != R.id.five ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -219,6 +226,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[5] && prevId != R.id.six ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -249,6 +257,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[6] && prevId != R.id.seven ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -279,6 +288,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[7] && prevId != R.id.eight ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -309,6 +319,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[8] && prevId != R.id.nine ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -339,6 +350,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[9] && prevId != R.id.ten ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -369,6 +381,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[10] && prevId != R.id.eleven ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -399,6 +412,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[11] && prevId != R.id.twelve ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -429,6 +443,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[12] && prevId != R.id.thirteen ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -459,6 +474,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[13] && prevId != R.id.fourteen ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -489,6 +505,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[14] && prevId != R.id.fifteen ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -519,6 +536,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[15] && prevId != R.id.sixteen ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -549,6 +567,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[16] && prevId != R.id.seventeen ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -579,6 +598,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[17] && prevId != R.id.eighteen ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -609,6 +629,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[18] && prevId != R.id.nineteen ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -639,6 +660,7 @@ class MainActivity() : AppCompatActivity() {
             if(fliped){
                 val image2: ImageView = findViewById(prevId)
                 if (previous == pics[19] && prevId != R.id.twenty ){
+                    correctCount--
                     image2.isClickable = false
                     image.isClickable = false
                     val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
@@ -660,6 +682,10 @@ class MainActivity() : AppCompatActivity() {
                 prevId = R.id.twenty
                 previous = pics[19]
             }
+        }
+        if (correctCount == 0){
+            findViewById<TextView>(R.id.lblTime).setText("You win")
+            timer.cancel()
         }
     }
 
