@@ -19,10 +19,15 @@ class MainActivity() : AppCompatActivity() {
     lateinit var timer: CountDownTimer
     var correctCount: Int = 10
     lateinit var mp: MediaPlayer
-
+    lateinit var win: MediaPlayer
+    lateinit var loss: MediaPlayer
+    lateinit var click: MediaPlayer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        win = MediaPlayer.create(this, R.raw.correct)
+        loss = MediaPlayer.create(this, R.raw.incorrect)
+        click = MediaPlayer.create(this, R.raw.click)
         timer = object: CountDownTimer(100000, 1000) {
 
             override fun onTick(millisUntilFinished: Long) {
@@ -31,6 +36,8 @@ class MainActivity() : AppCompatActivity() {
             }
 
             override fun onFinish() {
+                mp.stop()
+                loss.start()
                 findViewById<ImageView>(R.id.one).isClickable = false
                 findViewById<ImageView>(R.id.two).isClickable = false
                 findViewById<ImageView>(R.id.three).isClickable = false
@@ -62,7 +69,6 @@ class MainActivity() : AppCompatActivity() {
         timer.start()
     }
     fun clicked(view: View){
-        val click:MediaPlayer = MediaPlayer.create(this, R.raw.click)
         click.start()
         if(view.id == R.id.one){
             val image: ImageView = findViewById(R.id.one)
@@ -73,12 +79,10 @@ class MainActivity() : AppCompatActivity() {
                     image2.isClickable = false
                     image.isClickable = false
                     correctCount--
-                    val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
-                    correct.start()
+                    win.start()
                 }
                 else{
-                    val incorrect:MediaPlayer = MediaPlayer.create(this, R.raw.incorrect)
-                    incorrect.start()
+                    loss.start()
                     Handler().postDelayed({
                         image.setImageResource(R.drawable.qus)
                         image2.setImageResource(R.drawable.qus)
@@ -106,12 +110,10 @@ class MainActivity() : AppCompatActivity() {
                     correctCount--
                     image2.isClickable = false
                     image.isClickable = false
-                    val correct:MediaPlayer = MediaPlayer.create(this, R.raw.correct)
-                    correct.start()
+                    win.start()
                 }
                 else{
-                    val incorrect:MediaPlayer = MediaPlayer.create(this, R.raw.incorrect)
-                    incorrect.start()
+                    loss.start()
                     Handler().postDelayed({
                         image.setImageResource(R.drawable.qus)
                         image2.setImageResource(R.drawable.qus)
@@ -687,11 +689,13 @@ class MainActivity() : AppCompatActivity() {
         }
         if (correctCount == 0){
             findViewById<TextView>(R.id.lblTime).setText("You win")
+            mp.stop()
+            win.start()
             timer.cancel()
         }
     }
     fun retry(view: View){
-        mp.stop()
+        mp.release()
         this.recreate()
     }
 
